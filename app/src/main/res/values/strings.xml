@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BookStoreHelper</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="myname">Im am I</string>
+    <string name="TestText">何かの値はとっても大事なんだかそうでないんだか・・・</string>
+    <string name="author">著者</string>
+    <string name="EAN">EANNumber</string>
+    <string name="publisher">発行者</string>
+    <string name="releaseDate">発売日</string>
+    <string name="title">題名</string>
+    <string name="Iskindle">キンドル版があるか</string>
+    <string name="ButtonCamera">カメラ</string>
+    <string name="PreferenceScreen">AWS設定</string>
+    <string name="EANList">EANList</string>
+    <string name="ListPrice">ListPrice</string>
+    <string name="NumberOfPages">ページ数</string>
+    <string name="PublicationDate">発行日</string>
+    <string name="Publisher">発行会社</string>
+    <string name="ReleaseDate">リリース日</string>
+    <string name="Studio">スタジオ</string>
+    <string name="IsKindl">キンドル化されてる？</string>
+    <string name="kindleTrue">キンドル版あります</string>
+    <string name="kindleFalse">キンドル版ありません</string>
+    <string name="messageEncriptDataError">暗号データが不正です</string>
+    <string name="detailPageLink">詳細リンク</string>
+    <string name="dummyImg">だみいイメージ</string>
+
+</resources>
