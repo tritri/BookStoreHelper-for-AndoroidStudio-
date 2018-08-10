@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen 
-  xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:holo="http://schemas.android.com/apk/res/res-auto">
+	<!--
+  	android:summary="AWSについての設定を行います"
+  	android:title="@string/AWSTitle"
+  	android:key="@string/PreferenceScreen"
+  	-->
    <PreferenceScreen   
-  	android:summary="AWSについての設定を行います"   
-  	android:title="AWS設定"   
-  	android:key="@string/PreferenceScreen">
-	<EditTextPreference 
-		android:title="AWSパブリックキー設定"
-		android:key="AWS PublicKey"
-		android:summary="AWS PublicKey"/>
-	<EditTextPreference 
-		android:title="AWSシークレットキー設定"
-		android:key="AWS SeacretKey"
-		android:summary="AWS SeacretKey"/>
-	<EditTextPreference 
-		android:title="アソシエートタグ設定"
-		android:key="AssociateTag"
-		android:summary="AssociateTag"/>
-	<EditTextPreference 
-		android:title="パスワード設定"
-		android:key="password"
-		android:summary="password"/>
+  	holo:summary="AWSについての設定を行います"
+  	holo:title="@string/AWSTitle"
+  	holo:key="@string/PreferenceScreen">
+	<EditTextPreference
+		holo:title="AWSパブリックキー設定"
+		holo:key="@string/awsPublicKey"
+		holo:summary="AWS PublicKeyを設定します"/>
+	<EditTextPreference
+		holo:title="AWSシークレットキー設定"
+		holo:key="AWS SeacretKey"
+		holo:summary="AWS SeacretKey"/>
+	<EditTextPreference
+		holo:title="アソシエートタグ設定"
+		holo:key="AssociateTag"
+		holo:summary="AssociateTag"/>
+	<EditTextPreference
+		holo:title="パスワード設定"
+		holo:key="password"
+		holo:summary="password"/>
 	</PreferenceScreen>
 </PreferenceScreen>

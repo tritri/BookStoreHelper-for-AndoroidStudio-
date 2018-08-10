@@ -179,7 +179,7 @@ public class EncryptString {
                 byte[] byteResult = cipher.doFinal(byteText);
      
                 // バイト配列を文字列へ変換
-                strResult = new String(byteResult, "UTF-8");
+                strResult = new String(byteResult, "US-ASCII");
      
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();

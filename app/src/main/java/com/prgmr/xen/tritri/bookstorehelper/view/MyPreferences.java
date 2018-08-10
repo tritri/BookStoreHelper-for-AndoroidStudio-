@@ -12,6 +12,10 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import android.preference.EditTextPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference;
+
 public class MyPreferences extends PreferenceActivity {
 
 	public String DecryptPublicKeyString;
@@ -20,12 +24,42 @@ public class MyPreferences extends PreferenceActivity {
 
 	SharedPreferences sharedPref;
 
+	// テキストボックスPreferenceの PreferenceChangeリスナー
+	private OnPreferenceChangeListener editTextPreference_OnPreferenceChangeListener =
+			new OnPreferenceChangeListener(){
+				@Override
+				public boolean onPreferenceChange(Preference preference, Object newValue) {
+					return editTextPreference_OnPreferenceChange(preference,newValue);
+				}};
+
+	private boolean editTextPreference_OnPreferenceChange(Preference preference, Object newValue){
+		String input = newValue.toString();
+		if (input != null && Integer.parseInt(input) > 100){
+			//nullでなく100以上であれば要約を変更する
+			preference.setSummary(input);
+			return true;
+		} else {
+			//nullまたは100以下はエラー
+			return false;
+		}
+	}
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		this.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+		// キーを基に、テキストボックス設定のインスタンスを取得する
+		CharSequence cs =getText(R.string.awsPublicKey);
+		EditTextPreference  etp = (EditTextPreference)findPreference(cs);
+		// リスナーを設定する
+		etp.setOnPreferenceChangeListener(editTextPreference_OnPreferenceChangeListener);
+
+
+
+
+
 
 		// preferenceのデータをすべて消去します
 		// sharedPref.edit().clear().commit();
@@ -104,14 +138,19 @@ public class MyPreferences extends PreferenceActivity {
 		String secretKey = this.sharedPref.getString("AWS SeacretKey", "");
 		String associateTag = this.sharedPref.getString("AssociateTag", "");
 
+		String encryptPublicKey= EncryptString.encrypt(publicKey );
+		String encryptSecretKey= EncryptString.encrypt(secretKey );
+		String encryptAssociateTag=EncryptString.encrypt(associateTag );
+
 		// 暗号化したキーをpreferenceに保存します
 		Editor editor = sharedPref.edit();
-		editor.putString("AWS PublicKey", publicKey);
-		editor.putString("AWS SeacretKey", secretKey);
-		editor.putString("AssociateTag", associateTag);
+
+		editor.putString("AWS PublicKey", encryptPublicKey);
+		editor.putString("AWS SeacretKey", encryptSecretKey);
+		editor.putString("AssociateTag", encryptAssociateTag);
 		editor.putString("password", passwordHash);
 
-		editor.commit();
+		boolean commit = editor.commit();
 
 		Log.v("LifeCycle", "onStop");
 	}

@@ -27,5 +27,8 @@
     <string name="messageEncriptDataError">暗号データが不正です</string>
     <string name="detailPageLink">詳細リンク</string>
     <string name="dummyImg">だみいイメージ</string>
+    <string name="awsPublicKey">AWS PublicKey</string>
+    <string name="AWSTitle">AWS設定</string>PreferenceScreen
+
 
 </resources>

@@ -26,13 +26,16 @@
             </intent-filter>
         </activity>
         <activity android:name="com.prgmr.xen.tritri.bookstorehelper.view.book_informationActivity"></activity>
-        <!--
-        <activity android:name="MyPreferences" android:theme="@style/AppBaseTheme">
+        <activity android:name="com.prgmr.xen.tritri.bookstorehelper.view.MyPreferences" android:theme="@style/AppBaseTheme">
+<!--
             <intent-filter></intent-filter>
+-->
         </activity>
-        <activity android:name="OptMenu1Activity"></activity>
-        -->
+        <!--
 
+        <activity android:name="OptMenu1Activity"></activity>
+
+        -->
         <!-- 
     <application
         android:allowBackup="true"
